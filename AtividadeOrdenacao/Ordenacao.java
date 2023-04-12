@@ -16,6 +16,8 @@ public class Ordenacao implements Ordenacao_IF {
 		  }
 	  @Override 	  
 	  public long selectionSort(int[] numeros) {
+		long antes, depois;
+	    antes = System.nanoTime();
 	    int n = numeros.length;
 	    for(int i = 0;i < n-1;i++) {
 	      int min = i;
@@ -28,11 +30,14 @@ public class Ordenacao implements Ordenacao_IF {
 	      numeros[min] =  numeros[i];
 	      numeros[i] = aux; 
 	    }
-	    
-	    return 0;
+	    depois = System.nanoTime();
+	    return depois-antes;
 	  }
+	  
 	  @Override 
 	  public long insertionSort(int[] numeros) {
+		long antes, depois;
+	    antes = System.nanoTime();
 	    int chave;
 	    int j;
 	    int n = numeros.length;
@@ -45,18 +50,21 @@ public class Ordenacao implements Ordenacao_IF {
 	      }
 	      numeros[j+1] = chave;
 	    }    
-	    return 0;
+	    depois = System.nanoTime();
+	    return depois-antes;
 	  }
 	  @Override 
 	  public long mergeSort(int[] numeros, int left, int right) {
+	    long antes, depois;
+	    antes = System.nanoTime();
 	    if(left < right) {
 	      int meio = (left+right)/2;
 	      mergeSort(numeros, left, meio);
 	      mergeSort(numeros, meio+1, right);
 	      merge(numeros,left, meio, right);
 	    } 
-
-	    return 0;
+	    depois = System.nanoTime();
+	    return depois-antes;
 	  }
 	  
 	  private void merge(int[] numeros, int left, int meio, int right) {
@@ -101,12 +109,15 @@ public class Ordenacao implements Ordenacao_IF {
 	}
 	  @Override 
 	  public long quickSort(int[] numeros, int left, int right) {
+	    long antes, depois;
+	    antes = System.nanoTime();
 	    if (left < right) {
 	      int pivo = partition(numeros, left, right);
 	      quickSort(numeros, left, pivo - 1);
 	      quickSort(numeros, pivo + 1, right);
 	    }
-	    return 0;
+	    depois = System.nanoTime();
+	    return depois-antes;
 	  }
 
 	  private int partition(int[] numeros, int left, int right) {
@@ -134,13 +145,15 @@ public class Ordenacao implements Ordenacao_IF {
 	  }
 	  @Override 
 	  public long random_quickSort(int[] numeros, int left, int right) {
+		long antes, depois;
+	    antes = System.nanoTime();
 	    if (left < right) {
 	        int pivotIndex = randomizedPartition(numeros, left, right);
 	        random_quickSort(numeros, left, pivotIndex - 1);
 	        random_quickSort(numeros, pivotIndex + 1, right);
 	       }
-
-	    return 0;
+	    depois = System.nanoTime();
+	    return depois-antes;
 	  }
 	  
 	 public static int randomizedPartition(int[] arr, int low, int high) {
@@ -163,39 +176,44 @@ public class Ordenacao implements Ordenacao_IF {
 	 }
 
 	  public long quickSort_Java(int[] numeros) {
+	    long antes, depois;
+	    antes = System.nanoTime();
 	    Arrays.sort(numeros);
-	    return 0;
+	    depois = System.nanoTime();
+	    return depois-antes;
 	  }
 	  @Override 
 	  public long countingSort(int[] numeros) {
-		    int maxVal = numeros[0];
-		    int minVal = numeros[0];
-		    for (int i = 1; i < numeros.length; i++) {
-		        if (numeros[i] > maxVal) {
-		            maxVal = numeros[i];
-		        }
-		        if (numeros[i] < minVal) {
-		            minVal = numeros[i];
-		        }
-		    }
-		    int range = maxVal - minVal + 1;
-		    int[] count = new int[range];
-		    int[] output = new int[numeros.length];
-		    for (int i = 0; i < numeros.length; i++) {
-		        count[numeros[i] - minVal]++;
-		    }
-		    for (int i = 1; i < count.length; i++) {
-		        count[i] += count[i - 1];
-		    }
-		    for (int i = numeros.length - 1; i >= 0; i--) {
-		        output[count[numeros[i] - minVal] - 1] = numeros[i];
-		        count[numeros[i] - minVal]--;
-		    }
-		    for (int i = 0; i < numeros.length; i++) {
-		    	numeros[i] = output[i];
-		    }
-
-		    return 0;
-		}
+	    long antes, depois;
+	    antes = System.nanoTime();
+	    int maxVal = numeros[0];
+	    int minVal = numeros[0];
+	    for (int i = 1; i < numeros.length; i++) {
+	        if (numeros[i] > maxVal) {
+	            maxVal = numeros[i];
+	        }
+	        if (numeros[i] < minVal) {
+	            minVal = numeros[i];
+	        }
+	    }
+	    int range = maxVal - minVal + 1;
+	    int[] count = new int[range];
+	    int[] output = new int[numeros.length];
+	    for (int i = 0; i < numeros.length; i++) {
+	        count[numeros[i] - minVal]++;
+	    }
+	    for (int i = 1; i < count.length; i++) {
+	        count[i] += count[i - 1];
+	    }
+	    for (int i = numeros.length - 1; i >= 0; i--) {
+	        output[count[numeros[i] - minVal] - 1] = numeros[i];
+	        count[numeros[i] - minVal]--;
+	    }
+	    for (int i = 0; i < numeros.length; i++) {
+	    	numeros[i] = output[i];
+	    }
+	    depois = System.nanoTime();
+	    return depois-antes;
+	}
 
 }
