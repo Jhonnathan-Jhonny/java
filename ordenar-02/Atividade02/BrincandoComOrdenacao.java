@@ -45,8 +45,8 @@ public class BrincandoComOrdenacao {
 	    }
 	    
 	    //Chegando vetor crescente, decrescente e desordenado
-//	    
-//
+	    
+
 //	    for(int i = 0; i < numeros_crescente.length; i++) {
 //	    	System.out.print(numeros_crescente[i]+" ");
 //	    }
@@ -59,6 +59,21 @@ public class BrincandoComOrdenacao {
 //	    	System.out.print(numeros_desordenados[i]+" ");
 //	    }
 //	    System.out.println("\n");
+	    
+	    //Clonando vetores
+	    int crescentes[] = new int[tamanho_vetor];
+		int decrescentes[] = new int[tamanho_vetor];
+		int desordenados[] = new int[tamanho_vetor];
+		
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	crescentes[i] = numeros_crescente[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	decrescentes[i] = numeros_decrescente[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	desordenados[i] = numeros_desordenados[i];
+	    }
 
 
 	    long antes, depois;
@@ -91,6 +106,16 @@ public class BrincandoComOrdenacao {
 	    System.out.println("Média decrescente Selection Sort: " + media_decrescente);
 	    System.out.println("Média desrodenado Selection Sort: " + media_desrodenado);
 	    
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_crescente[i] = crescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_decrescente[i] = decrescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_desordenados[i] = desordenados[i];
+	    }
+	    
 	    //Insertion Sort
         media_crescente=0;
   		media_decrescente=0; 
@@ -122,6 +147,16 @@ public class BrincandoComOrdenacao {
 	    System.out.println("Média decrescente Insertion Sort: " + media_decrescente);
 	    System.out.println("Média desrodenado Insertion Sort: " + media_desrodenado);
 	  
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_crescente[i] = crescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_decrescente[i] = decrescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_desordenados[i] = desordenados[i];
+	    }
+	    
 	    //Merge Sort
         media_crescente=0;
   		media_decrescente=0; 
@@ -154,6 +189,16 @@ public class BrincandoComOrdenacao {
 	    System.out.println("Média decrescente Merge Sort: " + media_decrescente);
 	    System.out.println("Média desrodenado Merge Sort: " + media_desrodenado);
 	    
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_crescente[i] = crescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_decrescente[i] = decrescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_desordenados[i] = desordenados[i];
+	    }
+	    
 	    //  Quick Sort
         media_crescente=0;
   		media_decrescente=0; 
@@ -185,6 +230,16 @@ public class BrincandoComOrdenacao {
 	    System.out.println("Média decrescente Quick Sort: " + media_decrescente);
 	    System.out.println("Média desrodenado Quick Sort: " + media_desrodenado);
 
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_crescente[i] = crescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_decrescente[i] = decrescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_desordenados[i] = desordenados[i];
+	    }
+	    
     // Random Quick Sort
         media_crescente=0;
   		media_decrescente=0; 
@@ -216,6 +271,16 @@ public class BrincandoComOrdenacao {
 	    System.out.println("Média decrescente Random Quick Sort: " + media_decrescente);
 	    System.out.println("Média desrodenado Random Quick Sort: " + media_desrodenado);
 	    
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_crescente[i] = crescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_decrescente[i] = decrescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_desordenados[i] = desordenados[i];
+	    }
+	    
     	//  Quick Sort - JAVA
         media_crescente=0;
   		media_decrescente=0; 
@@ -246,6 +311,16 @@ public class BrincandoComOrdenacao {
 	    System.out.println("\nMédia crescente Quick Sort - JAVA: " + media_crescente);
 	    System.out.println("Média decrescente Quick Sort - JAVA: " + media_decrescente);
 	    System.out.println("Média desrodenado Quick Sort - JAVA: " + media_desrodenado);
+	    
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_crescente[i] = crescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_decrescente[i] = decrescentes[i];
+	    }
+	    for(int i = 0; i < numeros_crescente.length; i++) {
+	    	numeros_desordenados[i] = desordenados[i];
+	    }
 	    
 	    //Counting Sort
         media_crescente=0;
