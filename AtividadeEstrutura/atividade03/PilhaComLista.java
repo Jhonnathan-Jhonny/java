@@ -4,7 +4,9 @@ import java.io.IOException;
 
 public class PilhaComLista implements Pilha_IF {
 	
-	public int capacidadeDaLista = 10;
+	ListaEncadeada lista = new ListaEncadeada();
+	
+	public int capacidadeDaLista = 100;
 	public int size;
 	public Node top;
 
@@ -24,10 +26,11 @@ public class PilhaComLista implements Pilha_IF {
         if(isEmpty()) {
         	throw new IOException("Pilha Vazia");
         }
-        int data = top.getDado();
-        top = top.getProximo();
+        int dado = top.getDado();
+        lista.remove(dado);
+        top = lista.tail;
         size--;
-        return data;
+        return dado;
 	}
 
 	@Override
@@ -40,7 +43,7 @@ public class PilhaComLista implements Pilha_IF {
 
 	@Override
 	public boolean isEmpty() {
-		return size == 0;
+		return size == -1;
 	}
 
 	@Override

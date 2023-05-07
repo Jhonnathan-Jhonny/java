@@ -7,7 +7,7 @@ public class FilaComPilhas implements Fila_IF {
 	PilhaComLista p1 = new PilhaComLista();
 	PilhaComLista p2 = new PilhaComLista();
 	
-	FilaComPilhas f1 = new FilaComPilhas();
+	FilaComPilhas f1;
 
 	@Override
 	public void enqueue(int element) throws Exception {
