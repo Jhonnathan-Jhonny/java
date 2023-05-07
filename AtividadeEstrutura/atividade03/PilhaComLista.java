@@ -28,7 +28,6 @@ public class PilhaComLista implements Pilha_IF {
         }
         int dado = top.getDado();
         lista.remove(dado);
-        top = lista.tail;
         size--;
         return dado;
 	}

@@ -4,19 +4,17 @@ import java.io.IOException;
 
 public class ListaEncadeada implements ListaEncadeada_IF {
 	
-	Node NIL = null;
+	Node NIL = new Node();
 	protected Node head;
-	protected Node tail;
 	int size = 0;
-
+	
+	public ListaEncadeada() {
+		head = new Node();
+	}
+	
 	@Override
 	public boolean isEmpty() {
-		if (size == 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return size == 0;
 	}
 
 	@Override
@@ -43,19 +41,21 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
 	@Override
 	public void insert(int element) {
-		Node newNode = new Node(element);
+		Node auxHead = head;
 		if(head == NIL) {
-			head = newNode;
-			tail = newNode;
+			Node newHead = new Node(element);
+			newHead.setProximo(head);
+			head = newHead;
 		}
 		else {
-			tail.setProximo(newNode);
-			while(tail.getProximo() != NIL) {
-				tail = tail.getProximo();
+			if(head == NIL){
+				while(auxHead.getProximo()!= NIL) {
+					auxHead = auxHead.getProximo();
+				}
 			}
-			tail.setProximo(newNode);
-			newNode.setAnterior(tail);
-			tail = newNode;
+			Node newNode = new Node(element);
+			newNode.setProximo(auxHead.getProximo());
+			auxHead.setProximo(newNode);
 		}
 		size++;
 	}
@@ -67,10 +67,6 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 		}
 		if(head.getDado() == element) {
 			head = head.getProximo();
-			size--;
-		}
-		if(tail.getDado() == element) {
-			tail = tail.getAnterior();
 			size--;
 		}
 		else {
@@ -93,7 +89,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 		Node aux = head;
 		int contador = 0;
 		while(aux != NIL) {
-			result[contador] = aux.getDado();
+			result[contador]= aux.getDado();
 			aux = aux.getProximo();
 			contador++;
 		}

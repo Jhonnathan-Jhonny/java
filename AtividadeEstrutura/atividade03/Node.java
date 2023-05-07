@@ -1,29 +1,22 @@
 package atividade03;
 
 public class Node {
-	private int dado;
+	private Integer dado;
 	private Node proximo;
-	private Node anterior;
 
-	public Node(int dado) {
-		this.dado = dado;
-		this.proximo = null;
-		this.anterior = null;
+	public Node() {
+	}
+	
+	public Node(Integer dado) {
+        this.dado = dado;
+        this.proximo = null;
 	}
 
-	public Node getAnterior() {
-		return anterior;
-	}
-
-	public void setAnterior(Node anterior) {
-		this.anterior = anterior;
-	}
-
-	public int getDado() {
+	public Integer getDado() {
 		return dado;
 	}
 
-	public void setDado(int dado) {
+	public void setDado(Integer dado) {
 		this.dado = dado;
 	}
 
@@ -35,7 +28,7 @@ public class Node {
 		this.proximo = proximo;
 	}
 	
-	public boolean isNIL () {
-		return (this.dado == -1);
-	}
+	public boolean isNIL() {
+		return (dado == null);
+	}	
 }
