@@ -1,17 +1,28 @@
 package atividade03;
 
-import java.io.IOException;
-
 public class ListaEncadeada implements ListaEncadeada_IF {
 	
-	Node NIL = new Node();
 	protected Node head;
-	int size = 0;
+	private int size = 0;
+	
 	
 	public ListaEncadeada() {
-		head = new Node();
+		Node nil = new Node(-1);
+		head = 	nil;
 	}
 	
+	// Getter Setter
+	public Node getHead() {
+		return head;
+	}
+
+	
+	public void setHead(Node head) {
+		this.head = head;
+	}
+
+	// Metodos
+
 	@Override
 	public boolean isEmpty() {
 		return size == 0;
@@ -25,44 +36,50 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 	@Override
 	public int search(int element) throws Exception {
 		if(isEmpty()) {
-			throw new IOException("Lista vazia");
+			throw new Exception("Lista vazia");
 		}
-		int index = 0;
 		Node auxHead = head;
-		while(auxHead != NIL) {
+		while(!auxHead.isNIL()) {
 			if(auxHead.getDado() == element) {
-				return index;
+				return element;
 			}
-			index++;
 			auxHead = auxHead.getProximo();
 		}
-		return -1;
+		throw new Exception("não encontrado");
 	}
 
 	@Override
 	public void insert(int element) {
-		Node auxHead = head;
-		if(head == NIL) {
-			Node newHead = new Node(element);
-			newHead.setProximo(head);
-			head = newHead;
-		}
-		else {
-			if(head == NIL){
-				while(auxHead.getProximo()!= NIL) {
-					auxHead = auxHead.getProximo();
-				}
-			}
-			Node newNode = new Node(element);
-			newNode.setProximo(auxHead.getProximo());
-			auxHead.setProximo(newNode);
-		}
+		
+		//Inserindo no primeiro
+		Node newNode = new Node(element);
+		newNode.setProximo(head);
+		head = newNode;
 		size++;
+		
+		//Inserindo depois de algum elemento
+	
+//		if(isEmpty()) {
+//			Node newHead = new Node(element);
+//			newHead.setProximo(head);
+//			head = newHead;
+//			size++;
+//		}
+//		else {
+//			Node auxHead = head;
+//			while(auxHead.getProximo()!= null) {
+//				auxHead = auxHead.getProximo();
+//			}
+//			Node newNode = new Node(element);
+//			auxHead.setProximo(newNode);
+//			size++;
+//		}
 	}
 
 	@Override
 	public void remove(int element) {
 		if(isEmpty()) {
+			System.out.println("Lista vazia.");
 			return;
 		}
 		if(head.getDado() == element) {
@@ -71,29 +88,35 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 		}
 		else {
 			Node anterior = null;
-			Node aux = head;
-			while(aux != NIL && aux.getDado() != element) {
-				anterior = aux;
-				aux = aux.getProximo();
-			}
-			if(aux != NIL) {
-				anterior.setProximo(aux.getProximo()); 
-				size--;
+			Node cursor = head;
+			while(!cursor.isNIL() ) {	
+				if(cursor.getDado() == element) {
+					anterior.setProximo(cursor.getProximo());
+					size --;
+					return;
+				}
+				anterior = cursor;
+				cursor = cursor.getProximo();
 			}
 		}
 	}
 
 	@Override
 	public int[] toArray() {
-		int[] result = new int[size];
-		Node aux = head;
-		int contador = 0;
-		while(aux != NIL) {
-			result[contador]= aux.getDado();
-			aux = aux.getProximo();
-			contador++;
+		if(isEmpty()) {
+			return null;
 		}
-		return result;
+		else {
+			int[] result = new int[size];
+			Node aux = head;
+			int contador = 0;
+			while(!aux.isNIL()) {
+				result[contador]= aux.getDado();
+				aux = aux.getProximo();
+				contador++;
+			}
+			return result;
+		}
 	}
 	  
 }

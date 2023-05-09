@@ -1,18 +1,14 @@
 package atividade03;
 
-import java.io.IOException;
-
 public class FilaComPilhas implements Fila_IF {
 	
 	PilhaComLista p1 = new PilhaComLista();
 	PilhaComLista p2 = new PilhaComLista();
-	
-	FilaComPilhas f1;
 
 	@Override
 	public void enqueue(int element) throws Exception {
 		if(p1.isFull()) {
-			throw new IOException("Lista Cheia.");
+			throw new Exception("Lista Cheia.");
 		}
 		else {
 			p1.push(element);
@@ -22,7 +18,7 @@ public class FilaComPilhas implements Fila_IF {
 	@Override
 	public int dequeue() throws Exception {
 		if(p1.isEmpty()) {
-			throw new IOException("Lista Vazia.");
+			throw new Exception("Lista Vazia.");
 		}
 		else {
 			while(!p1.isEmpty()) {
@@ -43,7 +39,7 @@ public class FilaComPilhas implements Fila_IF {
 	public int head() throws Exception {
 		
 		if(p1.isEmpty()) {
-			throw new IOException("Cabeça inexistente.");
+			throw new Exception("Cabeça inexistente.");
 		}
 		else {
 			while(!p1.isEmpty()) {

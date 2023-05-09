@@ -16,6 +16,11 @@ public class BrincandoComEstruturas {
 		System.out.println(minhaLista.toArray()[0] == 200);
 		System.out.println(minhaLista.toArray()[1] == 100);
 		minhaLista.insert(300);
+		
+//		System.out.println("........");
+//		System.out.println(minhaLista.search(201) == -1);
+//		System.out.println("........");
+		
 		System.out.println(minhaLista.size() == 3);
 		System.out.println(minhaLista.toArray()[0] == 300);
 		System.out.println(minhaLista.toArray()[1] == 200);

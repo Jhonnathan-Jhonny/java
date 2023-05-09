@@ -1,22 +1,22 @@
 package atividade03;
 
 public class Node {
-	private Integer dado;
+	private int dado;
 	private Node proximo;
 
-	public Node() {
-	}
-	
-	public Node(Integer dado) {
+//	Construtor	
+	public Node(int dado) {
         this.dado = dado;
         this.proximo = null;
 	}
+	
+//	Getter Setter
 
-	public Integer getDado() {
+	public int getDado() {
 		return dado;
 	}
 
-	public void setDado(Integer dado) {
+	public void setDado(int dado) {
 		this.dado = dado;
 	}
 
@@ -29,6 +29,6 @@ public class Node {
 	}
 	
 	public boolean isNIL() {
-		return (dado == null);
-	}	
+		return this.dado == -1;
+	}
 }

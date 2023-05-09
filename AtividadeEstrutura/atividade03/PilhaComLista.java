@@ -1,53 +1,45 @@
 package atividade03;
 
-import java.io.IOException;
-
 public class PilhaComLista implements Pilha_IF {
 	
 	ListaEncadeada lista = new ListaEncadeada();
 	
-	public int capacidadeDaLista = 100;
-	public int size;
-	public Node top;
+	public final int CAPACIDADEDALISTA = 10;
 
 	@Override
 	public void push(int element) throws Exception {
 		if(isFull()) {
-			throw new IOException("Pilha Cheia");
+			throw new Exception("Pilha Cheia");
 		}
-		Node novoNode = new Node(element);
-		novoNode.setProximo(top);
-		top = novoNode;
-		size++;
+		lista.insert(element);
 	}
 
 	@Override
 	public int pop() throws Exception {
         if(isEmpty()) {
-        	throw new IOException("Pilha Vazia");
+        	throw new Exception("Pilha Vazia");
         }
-        int dado = top.getDado();
+        int dado = top();
         lista.remove(dado);
-        size--;
         return dado;
 	}
 
 	@Override
 	public int top() throws Exception {
 		if(isEmpty()) {
-			throw new IOException("Topo inexistente.");
+			throw new Exception("Topo inexistente.");
 		}
-		return top.getDado();
+		return lista.head.getDado();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return size == -1;
+		return lista.size() == 0;
 	}
 
 	@Override
 	public boolean isFull() {
-		return size == capacidadeDaLista;
+		return lista.size() == CAPACIDADEDALISTA;
 	}
 	  
 }
