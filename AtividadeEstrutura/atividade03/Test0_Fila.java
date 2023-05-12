@@ -25,6 +25,25 @@ public class Test0_Fila {
 		f.dequeue();
 	}
 	
-	//Outros testes ...
+	//Meus testes
+	
+	@Test 
+	public void testDequeueHead() throws Exception {
+		f.enqueue(1);
+		f.enqueue(2);
+		f.enqueue(3);
+		
+		f.dequeue();
+		assertEquals(f.head(),2);
+	}
 
+	@Test (expected = Exception.class)
+	public void cabecaVazia() throws Exception {
+		f.head();
+	}
+	
+	public void testCheia() throws Exception{
+		f.enqueue(Integer.MAX_VALUE);
+		assertTrue(f.isFull());
+	}
 }
