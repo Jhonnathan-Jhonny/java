@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -46,23 +47,61 @@ public class Test0_Pilha {
 	}
 	
 	@Test (expected = Exception.class)
-	public void topVazio() throws Exception{
+	public void topIsEmpty() throws Exception{
 		p.top();
 	}
 	
 	@Test
-	public void testCheio() throws Exception {
-		p.push(1);
-		p.push(2);
-		p.push(3);
-		p.push(4);
-		p.push(5);
-		p.push(6);
-		p.push(7);
-		p.push(8);
-		p.push(9);
-		p.push(10);
+	public void testFull() throws Exception {
+		for(int i = 0; i < 10; i++) {
+			p.push(i);
+		}
 		assertTrue(p.isFull());
 	}
+	
+	//CHAT
+	
+    @Test
+    public void testPushAndPop() throws Exception {
+        assertTrue(p.isEmpty());
+        assertFalse(p.isFull());
+
+        for(int i = 0; i < 10; i++) {
+        	p.push(i);
+        }
+
+        assertTrue(p.isFull());
+        assertFalse(p.isEmpty());
+
+        assertEquals(9, p.pop());
+        assertEquals(8, p.pop());
+        assertEquals(7, p.pop());
+
+        assertFalse(p.isFull());
+        assertFalse(p.isEmpty());
+
+        assertEquals(6, p.pop());
+        assertEquals(5, p.pop());
+        assertEquals(4, p.pop());
+        
+        for(int i = 0; i < 4; i++) {
+        	p.pop();
+        }
+
+        assertTrue(p.isEmpty());
+        assertFalse(p.isFull());
+    }
+
+    @Test
+    public void testTop() throws Exception {
+        p.push(1);
+        p.push(2);
+
+        assertEquals(2, p.top());
+
+        p.pop();
+
+        assertEquals(1, p.top());
+    }
 	
 }

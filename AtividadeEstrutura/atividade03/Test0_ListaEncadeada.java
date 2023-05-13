@@ -31,22 +31,22 @@ public class Test0_ListaEncadeada {
 	//Meus Testes
 	
 	@Test
-	public void testarSeVazio() {
+	public void testIsEmpty() {
 		assertTrue(l.isEmpty());
 	}
 	@Test
-	public void testarNaoVazia() {
+	public void testNotIsEmpty() {
 		l.insert(1);
 		assertFalse(l.isEmpty());
 	}
 	
 	@Test (expected = Exception.class)
-	public void procurarElementoListaVazia() throws Exception{
+	public void searchElementListIsEmpty() throws Exception{
 		l.search(2);
 	}
 	
 	@Test
-	public void procurarElementoListaCheia() throws Exception{
+	public void searchElementListIsFull() throws Exception{
 		for(int i = 0; i<= 10; i++) {
 			l.insert(i);
 		}
@@ -54,7 +54,7 @@ public class Test0_ListaEncadeada {
 	}
 	
 	@Test
-	public void testeRemoverListaVazia(){
+	public void testRemoveListIsEmpty(){
 		l.remove(1);
 		assertEquals(0,l.size());
 	}
@@ -72,7 +72,7 @@ public class Test0_ListaEncadeada {
     }
 
     @Test
-    public void testToArrayLitaVazia() {
+    public void testToArrayLitIsEmpty() {
         int[] expected = null;
         int[] result = l.toArray();
 
