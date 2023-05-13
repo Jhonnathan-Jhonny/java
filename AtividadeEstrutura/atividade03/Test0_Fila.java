@@ -54,8 +54,6 @@ public class Test0_Fila {
 		assertTrue(f.isFull());
 	}
 	
-	//CHAT
-	
     @Test
     public void testEnqueue() throws Exception {
     	for(int i = 0;i < 10; i++) {

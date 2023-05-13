@@ -59,8 +59,6 @@ public class Test0_Pilha {
 		assertTrue(p.isFull());
 	}
 	
-	//CHAT
-	
     @Test
     public void testPushAndPop() throws Exception {
         assertTrue(p.isEmpty());
