@@ -11,7 +11,10 @@ public class PilhaComLista implements Pilha_IF {
 		if(isFull()) {
 			throw new Exception("Pilha Cheia");
 		}
-		lista.insert(element);
+		if(element >= 0) {
+			lista.insert(element);
+		}
+			
 	}
 
 	@Override

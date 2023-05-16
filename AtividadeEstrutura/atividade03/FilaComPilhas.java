@@ -10,7 +10,7 @@ public class FilaComPilhas implements Fila_IF {
 		if(p1.isFull()) {
 			throw new Exception("Lista Cheia.");
 		}
-		else {
+		if(element >= 0) {
 			p1.push(element);
 		}
 	}

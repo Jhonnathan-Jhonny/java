@@ -50,12 +50,13 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
 	@Override
 	public void insert(int element) {
-		
-		//Inserindo no primeiro
-		Node newNode = new Node(element);
-		newNode.setProximo(head);
-		head = newNode;
-		size++;
+		if(element >= 0) {
+			//Inserindo no primeiro
+			Node newNode = new Node(element);
+			newNode.setProximo(head);
+			head = newNode;
+			size++;
+		}
 		
 		//Inserindo depois de algum elemento
 	
