@@ -41,6 +41,23 @@ public class BrincandoComEstruturas {
 		System.out.println(!minhaArvore.isComplete());
 		minhaArvore.insert(11);
 		System.out.println(minhaArvore.isComplete());
+		
+		
+		//MeusTeste
+		
+//		BST minhaArvore1 = new BST();
+//		minhaArvore1.insert(8);
+//		minhaArvore1.valorMaximo();
+//		for (int k = 1; k <= 22; k++) {
+//			minhaArvore1.insert(k);
+//		}
+//		minhaArvore1.valorMaximo();
+		
+		//FIM
+		
+		
+		
+		
 		for (int k = 1; k <= 15; k++) {
 			System.out.println(minhaArvore.search(k) == k);
 		}
