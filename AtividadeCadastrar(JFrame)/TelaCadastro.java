@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @author jhonnathan
  */
 public class TelaCadastro extends javax.swing.JFrame {
+
     public TelaCadastro() {
         initComponents();
     }
@@ -283,8 +284,12 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void editarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarCarroActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) tbCarros.getModel();
         ArrayList<Carro> lista = objLista.getListaCarros();
-        int posicao = Integer.parseInt(posicaoEditar.getText())-1;
-        if(posicao <= lista.size()){
+        if(posicaoEditar.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Digite a posiçao do carro!!!");
+            return;
+        }
+        int posicao = Integer.parseInt(posicaoEditar.getText())-1;        
+        if(posicao <= lista.size()-1){
             lista.get(posicao).setMarca(fieldMarca.getText());
             lista.get(posicao).setModelo(fieldModelo.getText());
             lista.get(posicao).setAno(fieldAno.getText());
@@ -303,6 +308,9 @@ public class TelaCadastro extends javax.swing.JFrame {
             modelo.setValueAt(lista.get(posicao).getAno(), posicao, 2);
             modelo.setValueAt(lista.get(posicao).getCor(), posicao, 3);
             modelo.setValueAt(lista.get(posicao).getMotor(), posicao, 4);
+        }
+        else if(lista.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Lista vazia.");
         }
         else {
             JOptionPane.showMessageDialog(null, "Carro não encontrado");
@@ -323,7 +331,11 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void removerCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerCarroActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) tbCarros.getModel();
         ArrayList<Carro> lista = objLista.getListaCarros();
-        int posicao = Integer.parseInt(posicaoEditar.getText())-1;
+        if(posicaoEditar.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Digite a posiçao do carro!!!");
+            return;
+        }
+        int posicao = Integer.parseInt(posicaoEditar.getText())-1;    
         if(!lista.isEmpty()&& posicao <= lista.size()-1){
             lista.remove(posicao);
             modelo.removeRow(posicao);
