@@ -201,7 +201,26 @@ public class BST implements BST_IF {
 
 	@Override
 	public boolean isComplete() {
-		return false;
+	    int totalNodes = countNodes(raiz);
+	    int expectedNodes = (int) Math.pow(2, getAltura(raiz)) - 1;
+	    return totalNodes == expectedNodes;
 	}
+
+	private int countNodes(BSTNode node) {
+	    if (node == null) {
+	        return 0;
+	    }
+	    
+	    return 1 + countNodes(node.getProxLeft()) + countNodes(node.getProxRight());
+	}
+
+	private int getAltura(BSTNode no) {
+	    if (no == null) {
+	        return 0;
+	    }
+	    
+	    return 1 + Math.max(getAltura(no.getProxLeft()), getAltura(no.getProxRight())); 
+	}
+
 
 }
