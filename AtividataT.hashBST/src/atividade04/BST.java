@@ -25,6 +25,10 @@ public class BST implements BST_IF {
 
 	@Override
 	public void insert(int element) {
+		if(element < 0) {
+			System.out.println("Elemento não permitido.");
+			return;
+		}
 		if(raiz.isNIL()) {
 			raiz = new BSTNode(element);
 			quantNo++;
